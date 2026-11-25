@@ -1,27 +1,32 @@
 
+"""
+BewegungsLabor
+Drei Bewegungsarten im Weg-Zeit-Diagramm
+
+main.py übernimmt die Programmsteuerung,
+Zeitmessung, Zustandsverwaltung und Benutzerinteraktion.
+"""
+
 import py5
+import visualization as vis
+
+
+def settings():
+    """Legt die Fenstergrösse fest."""
+    py5.size(vis.WINDOW_WIDTH, vis.WINDOW_HEIGHT)
 
 
 def setup():
-    py5.size(800, 500)
-    py5.window_title("BewegungsLabor – Systemtest")
+    """Initialisiert die Applikation."""
+    py5.window_title("BewegungsLabor")
+    vis.init_fonts()
+    py5.frame_rate(30)
 
 
 def draw():
-    py5.background(235, 240, 245)
-
-    py5.no_stroke()
-    py5.fill(37, 99, 201)
-    py5.circle(400, 250, 100)
-
-    py5.fill(30, 45, 60)
-    py5.text_size(28)
-    py5.text_align(py5.CENTER)
-    py5.text("BewegungsLabor", 400, 100)
-
-    py5.text_size(18)
-    py5.text("Systemtest erfolgreich!", 400, 380)
+    """Zeichnet die Benutzeroberfläche."""
+    vis.draw_layout()
 
 
-py5.run_sketch()
-
+if __name__ == "__main__":
+    py5.run_sketch()
